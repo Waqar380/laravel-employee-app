@@ -4,4 +4,5 @@ Steps to clone project
 2. npm install & npm run build
 3. php artisan key:generate
 4. PostgreSQL is used for DB, please setup your extensions pdo_pgsql
-5. php artisan serve
+5. move .env.example in .env file
+6. php artisan serve
