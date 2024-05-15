@@ -25,9 +25,9 @@ jobs:
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          ftp-server: ${{ secrets.FTP_HOST }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./ # Adjust if your Laravel project is in a subdirectory
           remote-dir: /home/enfohub/dev.enfohub.com # Adjust the remote directory path
           exclude: ".git*, .env" # Exclude files or directories from being uploaded
