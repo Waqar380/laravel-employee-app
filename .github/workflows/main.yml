@@ -22,12 +22,18 @@ jobs:
       #   run: |
       #     composer install --no-dev --prefer-dist --optimize-autoloader
 
+      - name: Initialize Git repository
+        run: |
+          git init
+          git config user.email "syedwaqarali380@gmail.com"
+          git config user.name "Syed Waqar Ali"
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
           ftp-server: ${{ secrets.FTP_HOST }}
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./ # Adjust if your Laravel project is in a subdirectory
-          remote-dir: /home/enfohub/dev.enfohub.com # Adjust the remote directory path
-          exclude: ".git*, .env" # Exclude files or directories from being uploaded
+          local-dir: ./
+          remote-dir: /home/enfohub/dev.enfohub.com
+          exclude: ".git*, .env"
