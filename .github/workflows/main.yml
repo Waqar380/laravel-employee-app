@@ -1,0 +1,33 @@
+name: Laravel FTP Deployment
+
+on:
+  push:
+    branches:
+      - main # Adjust the branch as needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # - name: Checkout repository
+      #   uses: actions/checkout@v2
+
+      # - name: Set up PHP
+      #   uses: shivammathur/setup-php@v2
+      #   with:
+      #     php-version: '7.4'
+
+      # - name: Install dependencies
+      #   run: |
+      #     composer install --no-dev --prefer-dist --optimize-autoloader
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./ # Adjust if your Laravel project is in a subdirectory
+          remote-dir: /home/enfohub/dev.enfohub.com # Adjust the remote directory path
+          exclude: ".git*, .env" # Exclude files or directories from being uploaded
