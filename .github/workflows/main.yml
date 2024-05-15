@@ -29,7 +29,7 @@ jobs:
       #     git config user.name "Syed Waqar Ali"
 
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           ftp-server: ${{ secrets.FTP_HOST }}
           ftp-username: ${{ secrets.FTP_USERNAME }}
